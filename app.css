@@ -89,14 +89,19 @@ body {
     bottom: 0; 
     transition: width 0.3s ease-out; 
 }
-
+.btn-NavBar{
+    background-color: #26282a;
+    transition: 2s ease;
+    transform: scale(1.4);  
+    
+}
 
 .nav-links a:hover::after {
     width: 100%; 
 }
 
 .nav-links a:hover {
-    color: #007bff; 
+    color: gray; 
 }
 .title-container{
     width: 100%;
