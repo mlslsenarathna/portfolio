@@ -8,6 +8,40 @@ body {
     position: relative;
 }
 
+
+/* Style for the glowing box */
+.glowing-box {
+  width: 80%;
+  max-width: 600px;
+  padding: 30px;
+  background-color: #2c2c2c; /* A slightly lighter dark gray for the box itself */
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* A subtle initial shadow */
+  color: #f0f0f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: glow 2s infinite alternate; /* Applies the glow animation */
+}
+
+/* The content inside the box */
+.glowing-box p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Keyframes for the animation */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #007bff, 0 0 10px #007bff; /* Start with a subtle blue glow */
+  }
+  50% {
+    box-shadow: 0 0 20px #007bff, 0 0 40px #007bff; /* Intense blue glow */
+  }
+  100% {
+    box-shadow: 0 0 5px #007bff, 0 0 10px #007bff; /* End with a subtle glow, ready to repeat */
+  }
+}
+
 .navbar {
     background-color: #000; 
     padding: 15px 20px;
@@ -116,13 +150,117 @@ body {
     position: absolute;
     z-index: 1001;
 }
+.gradient-text {
+    
+    background-image: linear-gradient(to right, #1b2dee, #16169f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 3rem;
+    height: 100vh;
+    margin: 0;
+}
+.box {
+    text-align: center;
+}
 
 @keyframes revealLine {
     0% { width: 0%; opacity: 0; }
     100% { width: 100%; opacity: 1; }
 }
+:root {
+      --bg: #0f1226;
+      --panel: #151a33;
+      --panel-2: #1a2040;
+      --text: #ffffff;
+      --ring: rgba(255,255,255,.2);
+      --glow: rgba(255,255,255,.35);
+    }
 
+    .social-menu {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      background: var(--panel);
+      padding: 1rem;
+      border-radius: 16px;
+      border: 1px solid var(--ring);
+      box-shadow: 5px 20px 50px rgba(0,0,0,.45);
+      width: 255px;
+      outline: #ffffff;
+    
+      margin-top: 45px;
+      margin-left: 20px;
+    }
 
+    .social-menu .item {
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      align-items: center;
+      gap: .75rem;
+      padding: .2rem .4rem;
+      border-radius: 1px;
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+      transition: backgroun.15s ease, filter .15s ease, box-shadow .2s ease;
+    }
+    .social-menu .item:hover,
+    .social-menu .item:focus-visible {
+      background: var(--panel-2);
+      filter: brightness(1.2);
+      box-shadow: 0 0 0 6px var(--ring), 0 0 20px 6px var(--glow) inset;
+      outline: none;
+    }
+
+    .social-menu .icon {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      color: var(--text);
+    }
+
+    .social-menu .label { font-weight: 600; letter-spacing: .2px; }
+    .social-menu .hint  { font-size: .85rem; opacity: .8; }
+
+     .about-box {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #151a33;
+      color: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,.4);
+      font-family: "Courier New", Courier, monospace; /* box-type font */
+      line-height: 1.6;
+      text-align: justify;
+      margin-top: 0px;
+    }
+    .about-box h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #ffffff;
+      font-family: "Courier New", Courier, monospace;
+    }
+    .about-box p {
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+    .about-box:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 0 0 4px #ffffff, 0 15px 35px rgba(0,0,0,.5);
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+    .mid-body-about{
+      border-radius: 5%;
+      margin-top: 180px;
+      margin-left: 250px;
+      height: 400px;
+
+    }
 
 
 

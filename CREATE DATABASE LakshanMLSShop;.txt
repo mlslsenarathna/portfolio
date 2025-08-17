@@ -1,0 +1,234 @@
+CREATE DATABASE LakshanMLSShop;
+
+USE LakshanMLSShop;
+
+CREATE TABLE Customer(
+	id VARCHAR(6) NOT NULL,
+	name VARCHAR(30),
+	tel VARCHAR(10),
+	address VARCHAR(30),
+	salary DECIMAL(10,2),
+	CONSTRAINT PRIMARY KEY (id)
+);
+
+CREATE TABLE Orders(
+	id VARCHAR(6) NOT NULL,
+	date DATE,
+	customerId VARCHAR(6) NOT NULL,
+	CONSTRAINT PRIMARY KEY (id),
+	CONSTRAINT FOREIGN KEY(customerId) REFERENCES Customer(id) on Delete Cascade on Update Cascade
+);
+
+CREATE TABLE Item(
+	code VARCHAR(6) NOT NULL,
+	description VARCHAR(70),
+	unitPrice DECIMAL(8,2),
+	qtyOnHand INT(5),
+	CONSTRAINT PRIMARY KEY (code)
+);
+
+CREATE TABLE OrderDetail(
+	orderId VARCHAR(6) NOT NULL,
+	itemCode VARCHAR(6) NOT NULL,
+	qty INT(11),
+	unitPrice DECIMAL(8,2),
+	CONSTRAINT PRIMARY KEY (orderId,itemCode),
+	CONSTRAINT FOREIGN KEY (orderId) REFERENCES Orders(id) on Delete Cascade on Update Cascade,
+	CONSTRAINT FOREIGN KEY (itemCode) REFERENCES Item(code) on Delete Cascade on Update Cascade
+);
+
+
+
+
+
+
+
+//--------------------Customer------------------------------------------
+
+INSERT INTO Customer VALUES('C001','Danapala','07123654789','Panadura',10);
+INSERT INTO Customer VALUES('C002','Gunapala','0718293456','Matara',10);
+INSERT INTO Customer VALUES('C003','Somapala','07789456123','Galle',10);
+INSERT INTO Customer VALUES('C004','Siripala','0762490513','Galle',10);
+INSERT INTO Customer VALUES('C005','Jinadasa','07213654789','Panadura',10);
+INSERT INTO Customer VALUES('C006','Sepalika',;'0718293654','Kalutara',10);
+INSERT INTO Customer VALUES('C007','Jinasena','0778899321','Ambalangoda',10);
+INSERT INTO Customer VALUES('C008','Somadasa','0718293123','Baddegama',10);
+
+//--------------------Item----------------------------------------------
+//3XL (Chest 50), 4XL (Chest 52), 5XL (Chest 54), 6XL (Chest 56), 7XL (Chest 59), 8XL (Chest 62)
+/*CREATE TABLE Item(
+	code VARCHAR(6) NOT NULL,
+	description VARCHAR(50),
+	unitPrice DECIMAL(8,2),
+	qtyOnHand INT(5),
+	CONSTRAINT PRIMARY KEY (code)
+);
+*/
+
+INSERT INTO Item VALUES('P001','3XL (Chest 50)-color white-white-button',3290.00,3000);
+INSERT INTO Item VALUES('P002','4XL (Chest 52)-color white-white-button',3290.00,200);
+INSERT INTO Item VALUES('P003',' 5XL (Chest 54)-color white-white-button',3290.00,36);
+INSERT INTO Item VALUES('P004',' 6XL (Chest 56)-color white-white-button',3290.00,36);
+INSERT INTO Item VALUES('P005','7XL (Chest 59)-color white-white-button',3490.00,6000);
+INSERT INTO Item VALUES('P006',' 8XL (Chest 62)-color white-white-button',3490.00,300);
+
+
+INSERT INTO Item VALUES('P001','3XL (Chest 50)-color white-black-button',3290.00,3000);
+INSERT INTO Item VALUES('P002','4XL (Chest 52)-color white-black-button',3290.00,200);
+INSERT INTO Item VALUES('P003',' 5XL (Chest 54)-color white-black-button',3290.00,36);
+INSERT INTO Item VALUES('P004',' 6XL (Chest 56)-color white-black-button',3290.00,36);
+INSERT INTO Item VALUES('P005','7XL (Chest 59)-color white-black-button',3490.00,6000);
+INSERT INTO Item VALUES('P006',' 8XL (Chest 62)-color white-black-button',3490.00,300);
+
+
+
+
+//14.5" -color white-white-button 
+INSERT INTO Item VALUES('P007','Collar-Size- 14.5-color white-black-button',1890.00,80);
+INSERT INTO Item VALUES('P008','Collar-Size- 15-color white-black-button',1990.00,130);
+INSERT INTO Item VALUES('P009','Collar-Size- 15.5-color white-black-button',1990.00,13);
+INSERT INTO Item VALUES('P010','Collar-Size- 16-color white-black-button',1990.00,83);
+INSERT INTO Item VALUES('P011','Collar-Size- 16.5-color white-black-button',2290.000,40);
+INSERT INTO Item VALUES('P012','Collar-Size- 17-color white-black-button',2290.00,89);
+INSERT INTO Item VALUES('P013','Collar-Size- 17.5-color white-black-button',2290.00,59);
+INSERT INTO Item VALUES('P014','Collar-Size- 18-color white-black-button',2290.00,39);
+INSERT INTO Item VALUES('P015','Collar-Size- 18.5-color white-black-button',2490.00,12);
+INSERT INTO Item VALUES('P016','Collar-Size- 19-color white-black-button',2490.00,93);
+INSERT INTO Item VALUES('P017','Collar-Size- 19.5-color white-black-button',2490.00,40);
+
+
+
+INSERT INTO Item VALUES('P018','Collar-Size- 14.5-color black-black-button ',1890.00,80);
+INSERT INTO Item VALUES('P019','Collar-Size- 15-color black-black-button',1990.00,130);
+INSERT INTO Item VALUES('P020','Collar-Size- 15.5-color black-black-button',1990.00,13);
+INSERT INTO Item VALUES('P021','Collar-Size- 16-color black-black-button',1990.00,83);
+INSERT INTO Item VALUES('P022','Collar-Size- 16.5-color black-black-button',2290.000,40);
+INSERT INTO Item VALUES('P023','Collar-Size- 17-color black-black-button',2290.00,89);
+INSERT INTO Item VALUES('P024','Collar-Size- 17.5-color black-black-button ',2290.00,59);
+INSERT INTO Item VALUES('P025','Collar-Size- 18-color black-black-button ',2290.00,39);
+INSERT INTO Item VALUES('P026','Collar-Size- 18.5-color black-black-button ',2490.00,12);
+INSERT INTO Item VALUES('P027','Collar-Size- 19-color black-black-button ',2490.00,93);
+INSERT INTO Item VALUES('P028','Collar-Size- 19.5-color black-black-button ',2490.00,40);
+
+
+
+
+INSERT INTO Item VALUES('P029','Collar-Size- 14.5-color navy-blue',1890.00,80);
+INSERT INTO Item VALUES('P030','Collar-Size- 15-color navy-blue',1990.00,130);
+INSERT INTO Item VALUES('P031','Collar-Size- 15.5-color navy-blue',1990.00,13);
+INSERT INTO Item VALUES('P032','Collar-Size- 16-color navy-blue',1990.00,83);
+INSERT INTO Item VALUES('P033','Collar-Size- 16.5-color navy-blue',2290.000,40);
+INSERT INTO Item VALUES('P034','Collar-Size- 17-color navy-blue',2290.00,89);
+INSERT INTO Item VALUES('P035','Collar-Size- 17.5-color navy-blue',2290.00,59);
+INSERT INTO Item VALUES('P036','Collar-Size- 18-color navy-blue',2290.00,39);
+INSERT INTO Item VALUES('P037','Collar-Size- 18.5-color navy-blue',2490.00,12);
+INSERT INTO Item VALUES('P038','Collar-Size- 19-color navy-blue',2490.00,93);
+INSERT INTO Item VALUES('P039','Collar-Size- 19.5-color navy-blue',2490.00,40);
+
+
+
+INSERT INTO Item VALUES('P040','Collar-Size- 19.5',2490.00,40);
+
+INSERT INTO Item VALUES('P041','Collar-Size- 19.5',2490.00,40);
+INSERT INTO Item VALUES('P042','Collar-Size- 19.5',2490.00,40);
+INSERT INTO Item VALUES('P043','Collar-Size- 19.5',2490.00,40);
+INSERT INTO Item VALUES('P044','Collar-Size- 19.5',2490.00,40);
+INSERT INTO Item VALUES('P045','Collar-Size- 19.5',2490.00,40);
+INSERT INTO Item VALUES('P046','Collar-Size- 19.5',2490.00,40);
+INSERT INTO Item VALUES('P047','Collar-Size- 19.5',2490.00,40);
+INSERT INTO Item VALUES('P048','Collar-Size- 19.5',2490.00,40);
+INSERT INTO Item VALUES('P049','Collar-Size- 19.5',2490.00,40);
+INSERT INTO Item VALUES('P050','Collar-Size- 19.5',2490.00,40);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------Orders-------------------------
+
+INSERT INTO Orders VALUES('D001','2008-2-15','C001');
+INSERT INTO Orders VALUES('D002','2008-2-15','C005');
+INSERT INTO Orders VALUES('D003','2008-2-20','C007');
+INSERT INTO Orders VALUES('D004','2008-2-28','C002');
+INSERT INTO Orders VALUES('D005','2008-3-20','C001');
+INSERT INTO Orders VALUES('D006','2008-4-10','C003');
+INSERT INTO Orders VALUES('D007','2008-5-10','C004');
+INSERT INTO Orders VALUES('D008','2008-6-20','C005');
+INSERT INTO Orders VALUES('D009','2008-8-12','C006');
+INSERT INTO Orders VALUES('D010','2008-9-20','C006');
+INSERT INTO Orders VALUES('D011','2009-2-13','C002');
+INSERT INTO Orders VALUES('D012','2009-2-16','C007');
+INSERT INTO Orders VALUES('D013','2009-2-20','C009');
+INSERT INTO Orders VALUES('D014','2009-3-16','C002');
+INSERT INTO Orders VALUES('D015','2009-4-15','C007');
+INSERT INTO Orders VALUES('D016','2009-8-26','C009');
+INSERT INTO Orders VALUES('D017','2010-2-16','C010');
+INSERT INTO Orders VALUES('D018','2010-3-26','C002');
+INSERT INTO Orders VALUES('D019','2011-6-11','C010');
+INSERT INTO Orders VALUES('D020','2011-9-26','C010');
+
+
+//--------------------OrderDetail---------------------
+
+INSERT INTO OrderDetail VALUES('D001','P001',3,105.00);
+INSERT INTO OrderDetail VALUES('D001','P002',5,525.00);
+INSERT INTO OrderDetail VALUES('D001','P003',8,995.00);
+INSERT INTO OrderDetail VALUES('D001','P006',1,560.00);
+INSERT INTO OrderDetail VALUES('D002','P002',4,525.00);
+INSERT INTO OrderDetail VALUES('D002','P003',4,995.00);
+INSERT INTO OrderDetail VALUES('D002','P008',3,275.00);
+INSERT INTO OrderDetail VALUES('D002','P010',7,90.00);
+INSERT INTO OrderDetail VALUES('D002','P012',3,90.00);
+INSERT INTO OrderDetail VALUES('D003','P001',9,105.00);
+INSERT INTO OrderDetail VALUES('D003','P004',6,4100.00);
+INSERT INTO OrderDetail VALUES('D003','P014',7,118.00);
+INSERT INTO OrderDetail VALUES('D004','P002',2,525.00);
+INSERT INTO OrderDetail VALUES('D004','P005',7,60.00);
+INSERT INTO OrderDetail VALUES('D004','P008',1,275.00);
+INSERT INTO OrderDetail VALUES('D004','P019',9,240.00);
+INSERT INTO OrderDetail VALUES('D004','P015',5,220.00);
+INSERT INTO OrderDetail VALUES('D004','P016',8,220.00);
+INSERT INTO OrderDetail VALUES('D004','P020',5,107.00);
+INSERT INTO OrderDetail VALUES('D004','P012',2,90.00);
+INSERT INTO OrderDetail VALUES('D004','P004',3,190.00);
+INSERT INTO OrderDetail VALUES('D004','P014',4,118.00);
+INSERT INTO OrderDetail VALUES('D005','P001',6,105.00);
+INSERT INTO OrderDetail VALUES('D005','P003',8,995.00);
+INSERT INTO OrderDetail VALUES('D005','P007',9,5230.00);
+INSERT INTO OrderDetail VALUES('D006','P003',9,995.00);
+INSERT INTO OrderDetail VALUES('D006','P006',8,560.00);
+INSERT INTO OrderDetail VALUES('D007','P020',1,107.00);
+INSERT INTO OrderDetail VALUES('D008','P001',3,105.00);
+INSERT INTO OrderDetail VALUES('D009','P002',2,525.00);
+INSERT INTO OrderDetail VALUES('D009','P003',2,995.00);
+INSERT INTO OrderDetail VALUES('D009','P005',2,60.00);
+INSERT INTO OrderDetail VALUES('D009','P007',9,5230.00);
+INSERT INTO OrderDetail VALUES('D009','P008',2,275.00);
+INSERT INTO OrderDetail VALUES('D009','P001',9,105.00);
+INSERT INTO OrderDetail VALUES('D009','P006',5,560.00);
+INSERT INTO OrderDetail VALUES('D010','P010',6,90.00);
+INSERT INTO OrderDetail VALUES('D010','P012',3,90.00);
+INSERT INTO OrderDetail VALUES('D010','P004',6,4100.00);
+INSERT INTO OrderDetail VALUES('D010','P001',6,105.00);
+INSERT INTO OrderDetail VALUES('D010','P016',5,220.00);
+INSERT INTO OrderDetail VALUES('D010','P002',3,525.00);
+
+
+
+
+
+
+
+
+
+
+
+
