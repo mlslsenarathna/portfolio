@@ -401,30 +401,28 @@ body {
 .portfolio-footer {
     background-color: #1a1a1a;
     color: #d3d3d3;
-    padding: 60px 20px 20px;
+    padding: 10px 20px 10px ;
     font-family: Arial, sans-serif;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 3px solid rgba(255, 255, 255, 0.05);
 }
-
 .footer-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 3000px;
+    margin: 10px auto;
 }
 
 .footer-column {
     flex: 1;
     margin: 10px;
-    min-width: 200px;
+    min-width: 300px;
 }
 
 .footer-column h4,
 .footer-column h5 {
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .footer-column p {

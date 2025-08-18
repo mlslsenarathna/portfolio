@@ -174,7 +174,7 @@ body {
       border-radius: 16px;
       border: 1px solid var(--ring);
       box-shadow: 5px 20px 50px rgba(0,0,0,.45);
-      width: 255px;
+      width: 500px;
       outline: #ffffff;
     
       margin-top: 45px;
@@ -249,6 +249,59 @@ body {
       height: 400px;
 
     }
+      :root {
+    --bg: #000;
+    --fg: #00ff99;
+    --glow: #00ffa6;
+    --size: 18px;       /* change font size */
+    --col-gap: 5vw;     /* horizontal gap between columns */
+  }
+
+  .stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    overflow: hidden;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .col {
+    position: absolute;
+    top: -120%;                    /* start above viewport */
+    left: calc(var(--i) * var(--col-gap));
+    color: var(--fg);
+    font-size: var(--size);
+    white-space: pre;              /* preserve newlines */
+    writing-mode: vertical-rl;     /* vertical text */
+    text-orientation: upright;     /* upright glyphs */
+    text-shadow: 0 0 8px var(--glow), 0 0 16px var(--glow);
+
+    /* fall animation */
+    animation-name: fall;
+    animation-duration: var(--dur, 10s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: var(--delay, 0s);
+    opacity: 0.9;
+  }
+
+  @keyframes fall {
+    from { transform: translateY(-10%); }
+    to   { transform: translateY(140%); }
+  }
+
+  .col:nth-child(3n)     { --dur: 9s; }
+  .col:nth-child(4n)     { --dur: 12s; }
+  .col:nth-child(5n)     { --dur: 7.5s; }
+  .col:nth-child(6n)     { --dur: 14s; }
+  .col:nth-child(7n)     { --dur: 11s; }
+
+  .col:nth-child(odd)    { --delay: -3s; }
+  .col:nth-child(3n+1)   { --delay: -5s; }
+  .col:nth-child(4n+2)   { --delay: -7s; }
+
+  .vignette { position: fixed; inset: 0; pointer-events:none; background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,.25) 80%); }
 
 
 
