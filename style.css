@@ -340,62 +340,79 @@ body {
     margin-left: 299px;
     border-radius: 12px;
     box-shadow: 0 8px 10px rgba(172, 38, 38, 0.3)
-
-
-  }
-   
-  .projects {
-  max-width: 700px;
-  color: rgb(254, 255, 255);
-  text-align: center;
+}
+    .projects {
+    max-width: 700px;
+    color: rgb(254, 255, 255);
+    text-align: center;
 }
 
-.project-main {
-  position: relative;
-  height: 250px;
-  padding-bottom: 15px;
-  overflow: hidden;
+    .project-main {
+    position: relative;
+    height: 250px;
+    padding-bottom: 15px;
+    overflow: hidden;
   
 }
 
 .project-card {
-  position: absolute;
-  left: 100%;
-  width: 105%;
-  background: #3a3636;
-  outline: #ccc;
-  outline-width: 2px;
-  border-radius: 10px;
-  padding: 55px;
-  box-shadow: 0 4px 8px rgba(240, 236, 236, 0.3);
-  transition: left 0.5s;
+    position: absolute;
+    left: 100%;
+    width: 105%;
+    background: #3a3636;
+    outline: #ccc;
+    outline-width: 2px;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 55px;
+    box-shadow: 0 4px 8px rgba(240, 236, 236, 0.3);
+    transition: left 0.5s;
 }
 
-.project-card.active {
-  left: 0;
+    .project-card.active {
+    left: 0;
+    }
+
+    .project-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    
 }
 
-.project-thumbnails {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  
+    .project-thumbnails .thumb {
+    width: 100px;
+    height: 25px;
+    background: #333;
+    border-radius: 6px;
+    line-height: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
 }
 
-.project-thumbnails .thumb {
-  width: 100px;
-  height: 25px;
-  background: #333;
-  border-radius: 6px;
-  line-height: 20px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
+    .project-thumbnails .thumb.active {
+    background: #00e6ff;
+    transform: scale(1.1);
+}
+.ripple-text {
+    font: 800 28px/1.1 system-ui, sans-serif;
+    color: #eef0f3;
+    text-shadow: 0 6px 12px rgba(30,144,255,0.35);
 }
 
-.project-thumbnails .thumb.active {
-  background: #00e6ff;
-  transform: scale(1.1);
+.ripple-text span {
+    display: inline-block;
+    animation: ripple 1.5s infinite;
+}
+
+@keyframes ripple {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+.demo-text{
+    justify-content: center;
+    
 }
 
 .portfolio-footer {

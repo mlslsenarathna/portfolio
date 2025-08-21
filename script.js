@@ -2,17 +2,27 @@
         const thumbs = document.querySelectorAll('.project-thumbnails .thumb');
         let currentIndex = 0;
 
-      
         function showProject(index) {
         mainProjects.forEach((proj, i) => proj.classList.toggle('active', i === index));
         thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === index));
         currentIndex = index;
         }
+        
+        document.querySelectorAll(".ripple-text").forEach(el => {
+        const content = el.textContent;
+        el.textContent = "";
+        [...content].forEach((char, i) => {
+            const span = document.createElement("span");
+            span.textContent = char;
+            span.style.animationDelay = `${i * 0.1}s`;
+            el.appendChild(span);
+        });
+        });
+
 
         document.querySelector('.project-main').addEventListener('wheel', (e) => {
         e.preventDefault();
         if(e.deltaY > 0) {
-           
             let next = (currentIndex + 1) % mainProjects.length;
             showProject(next);
         } else {
@@ -38,7 +48,6 @@
                 cursorChar: '|'  
             });
         });
-   
         document.addEventListener('DOMContentLoaded', () => {
             const introOverlay = document.querySelector('.intro-overlay');
             introOverlay.addEventListener('animationend', () => {
